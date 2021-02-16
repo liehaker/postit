@@ -1,6 +1,6 @@
 # postit
 
-<ims src="https://liehacker.ddns.net/wp-content/uploads/2021/02/스크린샷-2021-02-16-오후-11.29.04.png">
+<img src="https://liehacker.ddns.net/wp-content/uploads/2021/02/스크린샷-2021-02-16-오후-11.29.04.png">
 
 ## Project setup
 ```
