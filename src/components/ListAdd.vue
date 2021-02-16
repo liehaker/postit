@@ -4,10 +4,10 @@
       <v-form>
         <v-container>
           <v-row dense>
-            <v-col :cols="card.flex">
+            <v-col :cols="12">
               <v-card>
                 <v-img
-                  :src="card.src"
+                  src=""
                   class="white--text align-end"
                   gradient="to bottom, rgba(249,215,28,.1), rgba(0,0,0,.0)"
                   height="200px"
@@ -39,28 +39,22 @@
 <script>
 export default {
   props: {
-    index: null,
-    modify: {
-      type: Boolean,
-      default: false,
-    },
     card: {
-      id: -1,
-      title: "",
-      src: "",
-      flex: "12",
-      checked: false,
+      index: Number,
+      modify: Boolean,
+      title: String,
     },
   },
   data() {
     return {};
   },
+  created() {
+  },
   methods: {
     Write() {
       if (this.card.title.length === 0) alert("입력해주세요");
       else {
-        console.log("add", this.modify, this.index, this.card);
-        this.$emit("WRITE", this.modify, this.index, this.card);
+        this.$emit("WRITE", this.card.modify, this.card.index, this.card.title);
       }
     },
   },

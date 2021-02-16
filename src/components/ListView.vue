@@ -3,7 +3,11 @@
     <v-card class="mx-auto" width="90%">
       <v-container fluid>
         <v-row dense>
-          <v-col v-for="(card, index) in cards" :key="card.id" :cols="card.flex">
+          <v-col
+            v-for="(card, index) in cards"
+            :key="card.id"
+            :cols="card.flex"
+          >
             <v-card>
               <v-img
                 v-if="card.checked"
@@ -72,11 +76,11 @@ export default {
   },
   data() {
     return {
-      testestes: "to bottom, rgba(249,215,28,.1), rgba(0,0,0,.0)",
+
     };
   },
-  created : function() {
-      console.log('view', this.cards)
+  created: function () {
+    console.log("view", this.cards);
   },
   methods: {
     Delete(index) {
