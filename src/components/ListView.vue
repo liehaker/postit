@@ -4,7 +4,7 @@
       <v-container fluid>
         <v-row dense>
           <v-col
-            v-for="(card, index) in cards"
+            v-for="(card, index) in this.$store.state.cards"
             :key="card.id"
             :cols="card.flex"
           >
@@ -16,9 +16,9 @@
                 height="200px"
               >
                 <v-card-title
-                  v-text="card.title"
                   class="subtitle-1"
                   :class="card.flex === 6 ? 'black--text' : 'white--text'"
+                  v-text="card.title"
                 ></v-card-title>
               </v-img>
               <v-img
@@ -28,9 +28,9 @@
                 height="200px"
               >
                 <v-card-title
-                  v-text="card.title"
                   class="subtitle-1"
                   :class="card.flex === 6 ? 'black--text' : 'white--text'"
+                  v-text="card.title"
                 ></v-card-title>
               </v-img>
 
@@ -39,8 +39,8 @@
                 <v-icon
                   small
                   :style="card.checked ? 'color:red' : 'color:gray'"
-                  @click="$emit('love', index)"
                   class="pr-2"
+                  @click="Love(index)"
                   >mdi-heart</v-icon
                 >
                 <v-icon
@@ -68,26 +68,23 @@
 </template>
 
 <script>
-export default {
-  props: {
-    cards: {
-      type: Array,
-    },
-  },
-  data() {
-    return {
+import Constant from "@/Constant";
 
-    };
+export default {
+  props: {},
+  data() {
+    return {};
   },
-  created: function () {
-    console.log("view", this.cards);
-  },
+  created: function () {},
   methods: {
     Delete(index) {
-      this.$emit("DELETE", index);
+      this.$store.commit(Constant.DELETE, index);
     },
     Modify(index) {
-      this.$emit("MODIFY", index);
+      this.$store.commit(Constant.MODIFY, index);
+    },
+    Love(index) {
+      this.$store.commit(Constant.LOVE, index);
     },
   },
 };

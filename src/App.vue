@@ -23,11 +23,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://liehacker.ddns.net"
-        target="_blank"
-        text
-      >
+      <v-btn href="https://liehacker.ddns.net" target="_blank" text>
         <span class="mr-2">Postit</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
@@ -40,18 +36,17 @@
 </template>
 
 <script>
-
-import Home from "@/components/Home"
+import Home from "@/components/Home";
 
 export default {
   name: "App",
 
   components: {
-    Home
+    Home,
   },
 
   data: () => ({
     //
-  })
+  }),
 };
 </script>

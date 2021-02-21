@@ -13,7 +13,7 @@
                   height="200px"
                 >
                   <v-col cols="12">
-                    <v-textarea v-model="card.title" color="teal">
+                    <v-textarea v-model="textValue" color="teal">
                       <template v-slot:label>
                         <div>Typing</div>
                       </template>
@@ -37,29 +37,32 @@
 </template>
 
 <script>
+import Constant from "@/Constant";
+
 export default {
-  props: {
-    card: {
-      index: Number,
-      modify: Boolean,
-      title: String,
-    },
-  },
   data() {
-    return {};
+    return {
+      textValue: "",
+    };
   },
   created() {
+    console.log("Create", this.$store.state.index);
+    this.textValue = this.$store.state.modify
+      ? this.$store.state.cards[this.$store.state.index].title
+      : "";
   },
   methods: {
     Write() {
-      if (this.card.title.length === 0) alert("입력해주세요");
+      if (this.textValue.length === 0) alert("입력해주세요");
       else {
-        this.$emit("WRITE", this.card.modify, this.card.index, this.card.title);
+        this.$store.commit(Constant.WRITEITEM, {
+          i: this.$store.state.index,
+          t: this.textValue,
+        });
+
+        this.$store.commit(Constant.WRITTING, false);
       }
     },
   },
 };
 </script>
-
-<style>
-</style>
