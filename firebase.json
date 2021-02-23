@@ -4,7 +4,7 @@
     "public": "./dist",
     "ignore": [
       "firebase.json",
-      ".firebaserc"
+      ".firebaserc",
       "**/.*",
       "**/node_modules/**"
     ],
